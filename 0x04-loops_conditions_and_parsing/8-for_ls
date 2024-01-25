@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A script which displays the following;
+# Content of the current working directory
+# When the only part of the name after the first dash is diplayed
+
+for j in *; do
+	echo "$j" | cut -d '-' -j 2
+done
