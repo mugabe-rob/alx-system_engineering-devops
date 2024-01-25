@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Ascript that displays this;
+#Ascript that displays this;
 #Show 4 and then bad luck from Chine for the 4th loop iteration
 #Show 9 and then bad luck from Japan for the 9th loop iteration
 #Show 17 and then bad luck from Italy for the 17th  loop iteration
