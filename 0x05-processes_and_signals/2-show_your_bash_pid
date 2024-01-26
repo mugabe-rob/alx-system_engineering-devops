@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script to displays lines containing bash
+
+ps -aux | grep f
