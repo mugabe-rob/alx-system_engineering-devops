@@ -1,25 +1,19 @@
 #!/usr/bin/python3
-"""To query the number of subscribers
+"""returns the number of subscribers of a subreddit
 """
-
-import requests
+from requests import get
 
 
 def number_of_subscribers(subreddit):
-    """Request number of subscribers of subreddit
-    from Reddit API
+    """ returns the numbers of subscribers
     """
-    url = 'https://www.reddit.com/r/{}.json'.format(subreddit)
-    user_agent = '0x16-api_advanced-hamdani2020'
-
-    headers = {'User-Agent': user_agent}
-
-    rq = requests.get(url, headers=headers, allow_redirects=False)
-
-    if rq.status_code != 200:
+    if subreddit is None or not isinstance(subreddit, str):
         return 0
-
-    data = rq.json()['data']
-    pages = data['children']
-    page_data = pages[0]['data']
-    return page_data['subreddit_subscribers']
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) \
+                Gecko/20100101 Firefox/108.0"
+    }
+    response = get(url, headers=headers).json()
+    subscribers = response.get('data', {}).get('subscribers', 0)
+    return subscribers
